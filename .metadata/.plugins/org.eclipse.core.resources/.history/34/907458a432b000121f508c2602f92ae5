@@ -34,10 +34,10 @@ public class PlayScene extends Scene {
 		this.table.setFillParent(true);
 		
 		BlockType[][] image = new BlockType[][]{
+				{BlockType.PLACED, BlockType.PLACED, BlockType.PLACED, BlockType.SOLID},
 				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED},
 				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED},
-				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED},
-				{BlockType.SOLID, BlockType.PLACED, BlockType.PLACED, BlockType.PLACED}
+				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED}
 		};
 		int gridW = image.length;
 		int gridH = image[0].length;

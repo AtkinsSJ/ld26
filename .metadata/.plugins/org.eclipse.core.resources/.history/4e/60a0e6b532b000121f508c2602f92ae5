@@ -90,21 +90,12 @@ public class ImageGrid extends Widget {
 		int y = this.gridHeight-1;
 		
 		if (image.getBlock(x, y) != BlockType.EMPTY) {
-			this.lose();
-			return;
+			Gdx.app.debug("LOSE", "You lose!");
 		} else {
-			while (image.getBlock(x, y-1) == BlockType.EMPTY) {
+			while (image.getBlock(x, y) == BlockType.EMPTY) {
 				y--;
-			}
-			if (image.getBlock(x, y-1) == BlockType.INVALID) {
-				this.lose();
-				return;
 			}
 			this.image.setBlock(x, y, BlockType.PLACED);
 		}
-	}
-	
-	private void lose() {
-		Gdx.app.debug("LOSE", "You lose!");
 	}
 }

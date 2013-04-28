@@ -37,7 +37,7 @@ public class PlayScene extends Scene {
 				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED},
 				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED},
 				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED},
-				{BlockType.SOLID, BlockType.PLACED, BlockType.PLACED, BlockType.PLACED}
+				{BlockType.PLACED, BlockType.PLACED, BlockType.PLACED, BlockType.SOLID}
 		};
 		int gridW = image.length;
 		int gridH = image[0].length;
@@ -65,13 +65,13 @@ public class PlayScene extends Scene {
 				public void clicked(InputEvent event, float x, float y) {
 					super.clicked(event, x, y);
 					Gdx.app.debug("ClickListener", "Index: " + this.index);
-					grid.fireTop(index);
+					//grid.fireTop(index);
 				}
 			});
-			topButtons.add(btn).expand().fill();
+			topButtons.add(btn).fill();
 		}
 		
-		leftArea.add(topButtons).fill();
+		leftArea.add(topButtons);
 		leftArea.add().row();
 		leftArea.add("L");
 		

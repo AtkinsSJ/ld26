@@ -94,9 +94,6 @@ public class ImageRenderer extends Actor {
 	}
 	
 	public BlockType getBlock(int x, int y) {
-		if (x < 0 || x >= this.gridWidth || y < 0 || y >= this.gridHeight) {
-			return BlockType.INVALID;
-		}
 		return this.grid[x][y];
 	}
 	
