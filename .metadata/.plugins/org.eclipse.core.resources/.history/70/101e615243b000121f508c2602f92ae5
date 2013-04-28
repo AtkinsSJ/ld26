@@ -145,18 +145,7 @@ public class PlayScene extends Scene {
 		
 		this.thumb = new ImageThumbnail();
 		this.thumb.init(image);
-		rightArea.add(this.thumb).expand().fill().row();
-		
-		TextButton restartButton = new TextButton("Restart", skin);
-		restartButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				// TODO Auto-generated method stub
-				super.clicked(event, x, y);
-				grid.restart();
-			}
-		});
-		rightArea.add(restartButton).row();
+		rightArea.add(this.thumb).expand().fill();
 		
 		this.table.add(rightArea).space(10);//.expand().fill();
 		
