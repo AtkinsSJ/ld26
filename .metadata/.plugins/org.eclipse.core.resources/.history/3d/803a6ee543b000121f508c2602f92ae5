@@ -156,9 +156,9 @@ public class PlayScene extends Scene {
 				grid.restart();
 			}
 		});
-		rightArea.add(restartButton).bottom().expand().row();
+		rightArea.add(restartButton).bottom().row();
 		
-		this.table.add(rightArea).space(10).fill();//.expand().fill();
+		this.table.add(rightArea).space(10);//.expand().fill();
 		
 		this.addActor(this.table);
 		
