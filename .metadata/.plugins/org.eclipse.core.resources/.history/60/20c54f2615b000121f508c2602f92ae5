@@ -1,7 +1,5 @@
 package uk.co.samatkins.ld26;
 
-import uk.co.samatkins.ld26.ImageGrid.BlockType;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -37,10 +35,7 @@ public class PlayScene extends Scene {
 		leftArea.add("L");
 		
 		this.grid = new ImageGrid();//0, 0, getWidth(), getHeight());
-		this.grid.init(new BlockType[][]{
-			{BlockType.EMPTY, BlockType.PLACED},
-			{BlockType.PLACED, BlockType.SOLID}
-		});
+		this.grid.init(20, 20);
 		leftArea.add(this.grid).expand();
 		
 		leftArea.add("R").row();

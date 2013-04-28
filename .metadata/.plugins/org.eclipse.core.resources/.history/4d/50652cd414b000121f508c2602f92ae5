@@ -56,23 +56,24 @@ public class ImageGrid extends Widget {
 		Gdx.app.debug("Grid", this.getX() + ", " + this.getY() + " : " + this.getWidth() + " x " + this.getHeight());
 	}
 	
-	public void init(BlockType[][] target) {
+	public void init(int gridWidth, int gridHeight, BlockType[][] target) {
 		
-		this.gridWidth = target.length;
-		this.gridHeight = target[0].length;
+		this.gridWidth = gridWidth;
+		this.gridHeight = gridHeight;
 		
 		this.blockWidth = this.getWidth() / this.gridWidth;
 		this.blockHeight = this.getHeight() / this.gridHeight;
-		
-		this.target = target;
 		
 		Random r = new Random();
 		
 		this.grid = new BlockType[this.gridWidth][this.gridHeight];
 		for (int i=0; i<this.gridWidth; i++) {
 			for (int j=0; j<this.gridHeight; j++) {
-				if (this.target[i][j] == BlockType.SOLID) {
+				float f = r.nextFloat();
+				if (f < 0.1) {
 					this.grid[i][j] = BlockType.SOLID;
+				} else if (f < 0.5) {
+					this.grid[i][j] = BlockType.PLACED;
 				} else {
 					this.grid[i][j] = BlockType.EMPTY;
 				}
@@ -89,6 +90,8 @@ public class ImageGrid extends Widget {
 		batch.end();
 		
 		this.shapeRenderer.setProjectionMatrix(batch.getProjectionMatrix());
+		this.shapeRenderer.identity();
+		//this.shapeRenderer.translate( - (this.getWidth()/2),  - (this.getHeight()/2), 0);
 		
 		this.shapeRenderer.begin(ShapeType.FilledRectangle);
 		for (int i=0; i<this.gridWidth; i++) {

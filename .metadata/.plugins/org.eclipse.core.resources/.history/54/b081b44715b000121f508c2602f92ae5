@@ -38,8 +38,7 @@ public class PlayScene extends Scene {
 		
 		this.grid = new ImageGrid();//0, 0, getWidth(), getHeight());
 		this.grid.init(new BlockType[][]{
-			{BlockType.EMPTY, BlockType.PLACED},
-			{BlockType.PLACED, BlockType.SOLID}
+			{BlockType.EMPTY}
 		});
 		leftArea.add(this.grid).expand();
 		

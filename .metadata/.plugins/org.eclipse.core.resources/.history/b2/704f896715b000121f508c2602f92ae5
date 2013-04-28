@@ -89,6 +89,8 @@ public class ImageGrid extends Widget {
 		batch.end();
 		
 		this.shapeRenderer.setProjectionMatrix(batch.getProjectionMatrix());
+		this.shapeRenderer.identity();
+		//this.shapeRenderer.translate( - (this.getWidth()/2),  - (this.getHeight()/2), 0);
 		
 		this.shapeRenderer.begin(ShapeType.FilledRectangle);
 		for (int i=0; i<this.gridWidth; i++) {
