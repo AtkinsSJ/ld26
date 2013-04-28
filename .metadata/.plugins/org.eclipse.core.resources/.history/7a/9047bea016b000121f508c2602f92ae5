@@ -29,7 +29,6 @@ public class ImageGrid extends Widget {
 		
 		if (this.image != null) {
 			this.image.resize(this.getWidth(), this.getHeight());
-			this.image.setPosition(this.getX(), this.getY());
 		}
 		
 		Gdx.app.debug("Grid", this.getX() + ", " + this.getY() + " : " + this.getWidth() + " x " + this.getHeight());
@@ -42,6 +41,8 @@ public class ImageGrid extends Widget {
 		
 		this.target = target;
 		
+		Random r = new Random();
+		
 		BlockType[][] grid = new BlockType[this.gridWidth][this.gridHeight];
 		for (int i=0; i<this.gridWidth; i++) {
 			for (int j=0; j<this.gridHeight; j++) {
@@ -52,7 +53,6 @@ public class ImageGrid extends Widget {
 				}
 			}
 		}
-		
 		this.image = new ImageRenderer(grid);
 	}
 	
@@ -60,9 +60,22 @@ public class ImageGrid extends Widget {
 	public void draw(SpriteBatch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
-		if (this.image == null) return;
+		if (this.grid == null) return;
 		
-		this.image.draw(batch, parentAlpha);
+		batch.end();
+		
+		this.shapeRenderer.setProjectionMatrix(batch.getProjectionMatrix());
+		
+		this.shapeRenderer.begin(ShapeType.FilledRectangle);
+		for (int i=0; i<this.gridWidth; i++) {
+			for (int j=0; j<this.gridHeight; j++) {
+				this.shapeRenderer.setColor(this.grid[i][j].getColor());
+				this.shapeRenderer.filledRect( getX() + (i*blockWidth), getY() + (j*blockHeight), blockWidth, blockHeight);
+			}
+		}
+		this.shapeRenderer.end();
+		
+		batch.begin();
 	}
 	
 	@Override

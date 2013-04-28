@@ -1,6 +1,6 @@
 package uk.co.samatkins.ld26;
 
-import uk.co.samatkins.ld26.ImageRenderer.BlockType;
+import uk.co.samatkins.ld26.ImageGrid.BlockType;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

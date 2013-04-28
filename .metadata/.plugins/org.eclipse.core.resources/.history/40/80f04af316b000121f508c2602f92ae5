@@ -62,7 +62,11 @@ public class ImageGrid extends Widget {
 		
 		if (this.image == null) return;
 		
+		batch.end();
+		
 		this.image.draw(batch, parentAlpha);
+		
+		batch.begin();
 	}
 	
 	@Override

@@ -29,7 +29,6 @@ public class ImageGrid extends Widget {
 		
 		if (this.image != null) {
 			this.image.resize(this.getWidth(), this.getHeight());
-			this.image.setPosition(this.getX(), this.getY());
 		}
 		
 		Gdx.app.debug("Grid", this.getX() + ", " + this.getY() + " : " + this.getWidth() + " x " + this.getHeight());
@@ -62,7 +61,11 @@ public class ImageGrid extends Widget {
 		
 		if (this.image == null) return;
 		
+		batch.end();
+		
 		this.image.draw(batch, parentAlpha);
+		
+		batch.begin();
 	}
 	
 	@Override
