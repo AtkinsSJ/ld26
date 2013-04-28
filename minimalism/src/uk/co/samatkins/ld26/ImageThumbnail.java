@@ -13,8 +13,19 @@ public class ImageThumbnail extends Widget {
 	private int gridWidth;
 	private int gridHeight;
 	
-	public ImageThumbnail() {
+	@Override
+	public void layout() {
+		super.layout();
 		
+		this.setPosition(getX() + this.getParent().getX(),
+				getY() + this.getParent().getY());
+		
+		if (this.image != null) {
+			this.image.resize(this.getWidth(), this.getHeight());
+			this.image.setPosition(this.getX(), this.getY());
+		}
+		Gdx.app.debug("Thumb", this.getX() + ", " + this.getY() + " : " + this.getWidth() + " x " + this.getHeight());
+		Gdx.app.debug("Thumb parent", this.getParent().getX() + ", " +  this.getParent().getY());
 	}
 	
 	public void init(BlockType[][] grid) {
@@ -22,8 +33,6 @@ public class ImageThumbnail extends Widget {
 		this.gridHeight = grid[0].length;
 		
 		this.image = new ImageRenderer(grid);
-		
-		this.layout();
 	}
 
 	@Override
@@ -32,18 +41,6 @@ public class ImageThumbnail extends Widget {
 		if (this.image != null) {
 			this.image.draw(batch, parentAlpha);
 		}
-	}
-	
-	@Override
-	public void layout() {
-		super.layout();
-		
-		if (this.image != null) {
-			this.image.resize(this.getWidth(), this.getHeight());
-			this.image.setPosition(this.getX(), this.getY());
-		}
-		
-		Gdx.app.debug("Thumb", this.getX() + ", " + this.getY() + " : " + this.getWidth() + " x " + this.getHeight());
 	}
 	
 	@Override
@@ -58,11 +55,21 @@ public class ImageThumbnail extends Widget {
 	
 	@Override
 	public float getPrefWidth() {
-		return this.getMinWidth();
+		return (this.getMinWidth() + this.getMaxWidth() / 2);
 	}
 	
 	@Override
 	public float getPrefHeight() {
-		return this.getMinHeight();
+		return (this.getMinHeight() + this.getMaxHeight() / 2);
+	}
+	
+	@Override
+	public float getMaxWidth() {
+		return Math.max(this.gridWidth * 8, 100);
+	}
+	
+	 @Override
+	public float getMaxHeight() {
+		return Math.max(this.gridHeight * 8, 100);
 	}
 }

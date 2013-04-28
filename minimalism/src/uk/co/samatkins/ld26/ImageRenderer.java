@@ -1,5 +1,6 @@
 package uk.co.samatkins.ld26;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -102,6 +103,13 @@ public class ImageRenderer extends Actor {
 	
 	public void setBlock(int x, int y, BlockType type) {
 		this.grid[x][y] = type;
+	}
+	
+	@Override
+	public void setPosition(float x, float y) {
+		// TODO Auto-generated method stub
+		super.setPosition(x, y);
+		Gdx.app.debug("Position", "Setting renderer position: " + x + ", " + y);
 	}
 	
 }

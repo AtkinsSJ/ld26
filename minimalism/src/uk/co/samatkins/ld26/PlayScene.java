@@ -6,7 +6,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -32,6 +31,7 @@ public class PlayScene extends Scene {
 		this.table = new Table(skin);
 		this.table.setPosition(0, 0);
 		this.table.setFillParent(true);
+		this.table.pad(10);
 		
 		BlockType[][] image = new BlockType[][]{
 				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.SOLID},
@@ -75,7 +75,7 @@ public class PlayScene extends Scene {
 		Table leftButtons = new Table(skin);
 		for (int i=gridH-1; i>=0; i--) {
 			final int j = i;
-			TextButton btn = new TextButton(" ", skin);
+			TextButton btn = new TextButton("     ", skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -98,7 +98,7 @@ public class PlayScene extends Scene {
 		Table rightButtons = new Table(skin);
 		for (int i=gridH-1; i>=0; i--) {
 			final int j = i;
-			TextButton btn = new TextButton(" ", skin);
+			TextButton btn = new TextButton("     ", skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -137,7 +137,7 @@ public class PlayScene extends Scene {
 		leftArea.add(bottomButtons).fill();
 		leftArea.add();
 		
-		this.table.add(leftArea).fill().expand();
+		this.table.add(leftArea).fill().expand().space(10);
 		
 		Table rightArea = new Table(skin);
 		
@@ -145,9 +145,9 @@ public class PlayScene extends Scene {
 		
 		this.thumb = new ImageThumbnail();
 		this.thumb.init(image);
-		rightArea.add(this.thumb);
+		rightArea.add(this.thumb).expand().fill();
 		
-		this.table.add(rightArea);
+		this.table.add(rightArea).space(10);//.expand().fill();
 		
 		this.addActor(this.table);
 		
@@ -163,13 +163,14 @@ public class PlayScene extends Scene {
 	public void draw() {
 		// TODO Auto-generated method stub
 		super.draw();
+//		Table.drawDebug(this);
 	}
 	
 	@Override
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
 		super.resize(width, height);
-		this.thumb.invalidate();
+		thumb.invalidateHierarchy();
 	}
 
 }

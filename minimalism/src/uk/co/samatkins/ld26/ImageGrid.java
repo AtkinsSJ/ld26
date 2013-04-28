@@ -1,18 +1,12 @@
 package uk.co.samatkins.ld26;
 
-import java.util.Random;
-
 import uk.co.samatkins.ld26.ImageRenderer.BlockType;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 
 public class ImageGrid extends Widget {
-	
 	
 	private int gridWidth;
 	private int gridHeight;
@@ -20,12 +14,12 @@ public class ImageGrid extends Widget {
 	private ImageRenderer image;
 	private BlockType[][] target;
 	
-	public ImageGrid(){
-	}
-	
 	@Override
 	public void layout() {
 		super.layout();
+
+		this.setPosition(getX() + this.getParent().getX(),
+				getY() + this.getParent().getY());
 		
 		if (this.image != null) {
 			this.image.resize(this.getWidth(), this.getHeight());
