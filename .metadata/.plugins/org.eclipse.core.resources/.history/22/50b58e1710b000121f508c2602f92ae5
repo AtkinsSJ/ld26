@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 
 public class ImageGrid extends Widget {
@@ -42,7 +43,7 @@ public class ImageGrid extends Widget {
 		this.shapeRenderer = new ShapeRenderer();
 		
 		//this.setFillParent(true);
-		//this.setLayoutEnabled(true);
+		this.setLayoutEnabled(true);
 	}
 	
 	@Override
@@ -90,7 +91,7 @@ public class ImageGrid extends Widget {
 		
 		this.shapeRenderer.setProjectionMatrix(batch.getProjectionMatrix());
 		this.shapeRenderer.identity();
-		//this.shapeRenderer.translate( - (this.getWidth()/2),  - (this.getHeight()/2), 0);
+		this.shapeRenderer.translate( - (this.getWidth()/2),  - (this.getHeight()/2), 0);
 		
 		this.shapeRenderer.begin(ShapeType.FilledRectangle);
 		for (int i=0; i<this.gridWidth; i++) {
@@ -102,25 +103,5 @@ public class ImageGrid extends Widget {
 		this.shapeRenderer.end();
 		
 		batch.begin();
-	}
-	
-	@Override
-	public float getMinWidth() {
-		return this.gridWidth;
-	}
-	
-	 @Override
-	public float getMinHeight() {
-		return this.gridHeight;
-	}
-	
-	@Override
-	public float getPrefWidth() {
-		return this.getParent().getWidth();
-	}
-	
-	@Override
-	public float getPrefHeight() {
-		return this.getParent().getHeight();
 	}
 }
