@@ -27,25 +27,20 @@ public class PlayScene extends Scene {
 		this.table.setPosition(0, 0);
 		this.table.setFillParent(true);
 		
-		Table leftArea = new Table(skin);
-		
-		leftArea.add();
-		leftArea.add("Top Buttons");
-		leftArea.add().row();
-		leftArea.add("L");
+		this.table.add();
+		this.table.add("Top Buttons");
+		this.table.add().row();
+		this.table.add("L");
 		
 		this.grid = new ImageGrid();//0, 0, getWidth(), getHeight());
 		this.grid.init(20, 20);
-		leftArea.add(this.grid).expand();
+		this.table.add(this.grid).expand();
 		
-		leftArea.add("R").row();
+		this.table.add("R").row();
 		
-		leftArea.add();
-		leftArea.add("Bottom Buttons");
-		leftArea.add();
-		
-		this.table.add(leftArea).fill().expand();
-		this.table.add("Thumbnail");
+		this.table.add();
+		this.table.add("Bottom Buttons");
+		this.table.add();
 		
 		this.addActor(this.table);
 		

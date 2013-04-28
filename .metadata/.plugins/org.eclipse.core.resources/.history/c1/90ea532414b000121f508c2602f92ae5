@@ -28,6 +28,7 @@ public class PlayScene extends Scene {
 		this.table.setFillParent(true);
 		
 		Table leftArea = new Table(skin);
+		leftArea.setFillParent(true);
 		
 		leftArea.add();
 		leftArea.add("Top Buttons");
@@ -44,7 +45,7 @@ public class PlayScene extends Scene {
 		leftArea.add("Bottom Buttons");
 		leftArea.add();
 		
-		this.table.add(leftArea).fill().expand();
+		this.table.add(leftArea).expand();
 		this.table.add("Thumbnail");
 		
 		this.addActor(this.table);

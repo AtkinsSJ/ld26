@@ -44,8 +44,8 @@ public class PlayScene extends Scene {
 		leftArea.add("Bottom Buttons");
 		leftArea.add();
 		
-		this.table.add(leftArea).fill().expand();
-		this.table.add("Thumbnail");
+		this.table.add(leftArea).expand();
+		this.table.add("Thumbnail").expand();
 		
 		this.addActor(this.table);
 		
