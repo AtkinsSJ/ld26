@@ -1,0 +1,24 @@
+package uk.co.samatkins.ld26;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
+public class ImageGrid extends Actor {
+	
+	private int gridWidth;
+	private int gridHeight;
+	
+	public ImageGrid(float x, float y, float width, float height, int gridWidth, int gridHeight) {
+		
+		this.setBounds(x, y, width, height);
+		
+		this.gridWidth = gridWidth;
+		this.gridHeight = gridHeight;
+	}
+	
+	@Override
+	public void draw(SpriteBatch batch, float parentAlpha) {
+		// TODO Auto-generated method stub
+		super.draw(batch, parentAlpha);
+	}
+}

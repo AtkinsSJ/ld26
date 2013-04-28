@@ -1,0 +1,26 @@
+package uk.co.samatkins.ld26;
+
+public class PlayScene extends Scene {
+	
+	private ImageGrid grid;
+
+	public PlayScene(LD26 game) {
+		super(game);
+	}
+	
+	@Override
+	public void show() {
+		super.show();
+		
+		this.grid = new ImageGrid(0, 0, getWidth(), getHeight());
+		this.grid.init(20,  20);
+		this.addActor(this.grid);
+	}
+
+	@Override
+	public void update(float delta) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

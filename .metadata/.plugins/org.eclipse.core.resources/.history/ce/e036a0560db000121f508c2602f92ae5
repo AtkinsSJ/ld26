@@ -1,0 +1,63 @@
+package uk.co.samatkins.ld26;
+
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+
+public class PlayScene extends Scene {
+	
+	private Table table;
+	
+	private ImageGrid grid;
+
+	public PlayScene(LD26 game) {
+		super(game, Color.WHITE);
+	}
+	
+	@Override
+	public void show() {
+		super.show();
+		
+		this.table = new Table();
+		this.table.debug();
+		this.table.setPosition(0, 0);
+		this.table.setFillParent(true);
+		
+		this.table.add("TL");
+		this.table.add("Top");
+		this.table.add("TR").row();
+		this.table.add("L");
+		
+		this.grid = new ImageGrid();//0, 0, getWidth(), getHeight());
+		this.grid.init(20, 20);
+		this.table.add(this.grid);
+		
+		this.table.add("R").row();
+		
+		this.table.add("BL");
+		this.table.add("Bottom");
+		this.table.add("BR");
+		
+		this.addActor(this.table);
+		
+	}
+
+	@Override
+	public void update(float delta) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		super.draw();
+		Table.drawDebug(this);
+	}
+	
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+		super.resize(width, height);
+	}
+
+}

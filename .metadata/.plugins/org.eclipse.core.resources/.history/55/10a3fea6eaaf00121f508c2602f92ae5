@@ -1,0 +1,7 @@
+package uk.co.samatkins.ld26;
+
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
+public class ImageGrid extends Actor {
+
+}
