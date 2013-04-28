@@ -46,21 +46,21 @@ public class ImageThumbnail extends Widget {
 	
 	@Override
 	public float getMinWidth() {
-		return Math.max(this.gridWidth * 4, 100);
+		return this.gridWidth * 4;
 	}
 	
 	 @Override
 	public float getMinHeight() {
-		return Math.max(this.gridHeight * 4, 100);
+		return this.gridHeight * 4;
 	}
 	
 	@Override
 	public float getPrefWidth() {
-		return this.getMinWidth();
+		return this.getMinWidth() * 4;
 	}
 	
 	@Override
 	public float getPrefHeight() {
-		return this.getMinHeight();
+		return this.getMinHeight() * 4;
 	}
 }

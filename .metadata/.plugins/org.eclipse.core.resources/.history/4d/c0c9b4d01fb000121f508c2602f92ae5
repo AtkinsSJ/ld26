@@ -56,11 +56,11 @@ public class ImageThumbnail extends Widget {
 	
 	@Override
 	public float getPrefWidth() {
-		return this.getMinWidth();
+		return this.getMinWidth() * 4;
 	}
 	
 	@Override
 	public float getPrefHeight() {
-		return this.getMinHeight();
+		return this.getMinHeight() * 4;
 	}
 }

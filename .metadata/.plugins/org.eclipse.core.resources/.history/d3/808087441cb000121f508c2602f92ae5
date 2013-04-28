@@ -13,7 +13,6 @@ public class PlayScene extends Scene {
 	private Table table;
 	
 	private ImageGrid grid;
-	private ImageThumbnail thumb;
 
 	public PlayScene(LD26 game) {
 		super(game, Color.BLACK);
@@ -37,13 +36,11 @@ public class PlayScene extends Scene {
 		leftArea.add().row();
 		leftArea.add("L");
 		
-		BlockType[][] image = new BlockType[][]{
-				{BlockType.EMPTY, BlockType.EMPTY, BlockType.EMPTY, BlockType.PLACED},
-				{BlockType.PLACED, BlockType.EMPTY, BlockType.PLACED, BlockType.SOLID}
-		};
-		
 		this.grid = new ImageGrid();//0, 0, getWidth(), getHeight());
-		this.grid.init(image);
+		this.grid.init(new BlockType[][]{
+			{BlockType.EMPTY, BlockType.PLACED},
+			{BlockType.PLACED, BlockType.SOLID}
+		});
 		leftArea.add(this.grid).expand();
 		
 		leftArea.add("R").row();
@@ -53,9 +50,7 @@ public class PlayScene extends Scene {
 		leftArea.add();
 		
 		this.table.add(leftArea).fill().expand();
-		this.thumb = new ImageThumbnail();
-		this.thumb.init(image);
-		this.table.add(this.thumb);
+		this.table.add(new ImageThumbnail());
 		
 		this.addActor(this.table);
 		
@@ -78,7 +73,6 @@ public class PlayScene extends Scene {
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
 		super.resize(width, height);
-		this.thumb.invalidate();
 	}
 
 }

@@ -10,16 +10,16 @@ public class ImageThumbnail extends Widget {
 	
 	private ImageRenderer image;
 	
-	private int gridWidth;
-	private int gridHeight;
+	private int minWidth;
+	private int minHeight;
 	
 	public ImageThumbnail() {
 		
 	}
 	
 	public void init(BlockType[][] grid) {
-		this.gridWidth = grid.length;
-		this.gridHeight = grid[0].length;
+		this.minWidth = grid.length;
+		this.minHeight = grid[0].length;
 		
 		this.image = new ImageRenderer(grid);
 	}
@@ -46,21 +46,21 @@ public class ImageThumbnail extends Widget {
 	
 	@Override
 	public float getMinWidth() {
-		return Math.max(this.gridWidth * 4, 100);
+		return this.minWidth;
 	}
 	
 	 @Override
 	public float getMinHeight() {
-		return Math.max(this.gridHeight * 4, 100);
+		return this.minHeight;
 	}
 	
 	@Override
 	public float getPrefWidth() {
-		return this.getMinWidth();
+		return this.getMinWidth() * 4;
 	}
 	
 	@Override
 	public float getPrefHeight() {
-		return this.getMinHeight();
+		return this.getMinHeight() * 4;
 	}
 }

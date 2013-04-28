@@ -1,0 +1,19 @@
+package uk.co.samatkins.ld26;
+
+import uk.co.samatkins.ld26.ImageRenderer.BlockType;
+
+import com.badlogic.gdx.scenes.scene2d.ui.Widget;
+
+public class ImageThumbnail extends Widget {
+	
+	private ImageRenderer image;
+	
+	public ImageThumbnail() {
+		
+	}
+	
+	public void init(BlockType[][] grid) {
+		this.image = new ImageRenderer(grid);
+	}
+
+}
