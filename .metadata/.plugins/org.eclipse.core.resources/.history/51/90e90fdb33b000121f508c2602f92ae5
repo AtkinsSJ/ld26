@@ -142,25 +142,6 @@ public class ImageGrid extends Widget {
 		}
 	}
 	
-	public void fireRight(int row) {
-		int x = this.gridWidth-1;
-		int y = row;
-		
-		if (image.getBlock(x, y) != BlockType.EMPTY) {
-			this.lose();
-			return;
-		} else {
-			while (image.getBlock(x-1, y) == BlockType.EMPTY) {
-				x--;
-			}
-			if (image.getBlock(x-1, y) == BlockType.INVALID) {
-				this.lose();
-				return;
-			}
-			this.image.setBlock(x, y, BlockType.PLACED);
-		}
-	}
-	
 	private void lose() {
 		Gdx.app.debug("LOSE", "You lose!");
 	}
