@@ -75,20 +75,6 @@ public class ImageRenderer extends Actor {
 		this.shapeRenderer.begin(ShapeType.Line);
 		this.shapeRenderer.setColor(Color.BLACK);
 		
-		float xPos;
-		for (int x=0; x<=this.gridWidth; x++) {
-			xPos = getX() + (x * blockWidth);
-			this.shapeRenderer.line(xPos, getY(), xPos, getY() + getHeight());
-		}
-		
-		float yPos;
-		for (int y=0; y<=this.gridHeight; y++) {
-			yPos = getY() + (y * blockHeight);
-			this.shapeRenderer.line(getX(), yPos, getX() + getWidth(), yPos);
-		}
-		
-		this.shapeRenderer.end();
-		
 		batch.begin();
 	}
 	

@@ -16,7 +16,7 @@ public class PlayScene extends Scene {
 	private ImageThumbnail thumb;
 
 	public PlayScene(LD26 game) {
-		super(game, Color.WHITE);
+		super(game, Color.BLACK);
 	}
 	
 	@Override

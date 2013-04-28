@@ -16,7 +16,7 @@ public class PlayScene extends Scene {
 	private ImageThumbnail thumb;
 
 	public PlayScene(LD26 game) {
-		super(game, Color.WHITE);
+		super(game, Color.BLACK);
 	}
 	
 	@Override
@@ -41,7 +41,7 @@ public class PlayScene extends Scene {
 				{BlockType.PLACED, BlockType.EMPTY, BlockType.PLACED, BlockType.SOLID}
 		};
 		
-		this.grid = new ImageGrid();
+		this.grid = new ImageGrid();//0, 0, getWidth(), getHeight());
 		this.grid.init(image);
 		leftArea.add(this.grid).expand();
 		

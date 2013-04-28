@@ -16,7 +16,7 @@ public class PlayScene extends Scene {
 	private ImageThumbnail thumb;
 
 	public PlayScene(LD26 game) {
-		super(game, Color.WHITE);
+		super(game, Color.BLACK);
 	}
 	
 	@Override
@@ -26,6 +26,7 @@ public class PlayScene extends Scene {
 		Skin skin = new Skin(Gdx.files.internal("skin.json"), new TextureAtlas(Gdx.files.internal("packed.atlas")));
 		
 		this.table = new Table(skin);
+		this.table.debug();
 		this.table.setPosition(0, 0);
 		this.table.setFillParent(true);
 		
@@ -41,7 +42,7 @@ public class PlayScene extends Scene {
 				{BlockType.PLACED, BlockType.EMPTY, BlockType.PLACED, BlockType.SOLID}
 		};
 		
-		this.grid = new ImageGrid();
+		this.grid = new ImageGrid();//0, 0, getWidth(), getHeight());
 		this.grid.init(image);
 		leftArea.add(this.grid).expand();
 		
@@ -52,16 +53,9 @@ public class PlayScene extends Scene {
 		leftArea.add();
 		
 		this.table.add(leftArea).fill().expand();
-		
-		Table rightArea = new Table(skin);
-		
-		rightArea.add("Target:").row();
-		
 		this.thumb = new ImageThumbnail();
 		this.thumb.init(image);
-		rightArea.add(this.thumb);
-		
-		this.table.add(rightArea);
+		this.table.add(this.thumb);
 		
 		this.addActor(this.table);
 		
@@ -77,6 +71,7 @@ public class PlayScene extends Scene {
 	public void draw() {
 		// TODO Auto-generated method stub
 		super.draw();
+		Table.drawDebug(this);
 	}
 	
 	@Override

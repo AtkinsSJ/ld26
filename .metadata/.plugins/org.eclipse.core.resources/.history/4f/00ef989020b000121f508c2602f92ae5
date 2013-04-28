@@ -23,7 +23,7 @@ public class ImageThumbnail extends Widget {
 		
 		this.image = new ImageRenderer(grid);
 		
-		this.layout();
+		this.invalidate();
 	}
 
 	@Override

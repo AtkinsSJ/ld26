@@ -22,8 +22,6 @@ public class ImageThumbnail extends Widget {
 		this.gridHeight = grid[0].length;
 		
 		this.image = new ImageRenderer(grid);
-		
-		this.layout();
 	}
 
 	@Override
