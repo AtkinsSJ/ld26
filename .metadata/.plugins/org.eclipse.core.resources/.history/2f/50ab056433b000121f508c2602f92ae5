@@ -112,10 +112,10 @@ public class ImageGrid extends Widget {
 			this.lose();
 			return;
 		} else {
-			while (image.getBlock(x, y+1) == BlockType.EMPTY) {
-				y++;
+			while (image.getBlock(x, y-1) == BlockType.EMPTY) {
+				y--;
 			}
-			if (image.getBlock(x, y+1) == BlockType.INVALID) {
+			if (image.getBlock(x, y-1) == BlockType.INVALID) {
 				this.lose();
 				return;
 			}

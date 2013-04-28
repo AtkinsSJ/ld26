@@ -104,25 +104,6 @@ public class ImageGrid extends Widget {
 		}
 	}
 	
-	public void fireBottom(int column) {
-		int x = column;
-		int y = 0;
-		
-		if (image.getBlock(x, y) != BlockType.EMPTY) {
-			this.lose();
-			return;
-		} else {
-			while (image.getBlock(x, y+1) == BlockType.EMPTY) {
-				y++;
-			}
-			if (image.getBlock(x, y+1) == BlockType.INVALID) {
-				this.lose();
-				return;
-			}
-			this.image.setBlock(x, y, BlockType.PLACED);
-		}
-	}
-	
 	private void lose() {
 		Gdx.app.debug("LOSE", "You lose!");
 	}
