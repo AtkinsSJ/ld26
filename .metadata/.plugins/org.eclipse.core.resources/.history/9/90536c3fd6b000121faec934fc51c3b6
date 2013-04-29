@@ -71,9 +71,9 @@ public class Base64 {
 				+ (CHARS.indexOf(singleLine.charAt(i+1)) << 12)
 				+ (CHARS.indexOf(singleLine.charAt(i+2)) << 6)
 				+ (CHARS.indexOf(singleLine.charAt(i+3)) );
-			builder.append((char) (j >> 16 & 0xff))
-					.append((char) (j >> 8 & 0xff))
-					.append((char) (j & 0xff));
+			builder.append((char) j >> 16 & 0xff)
+					.append((char) j >> 8 & 0xff)
+					.append((char) j & 0xff)
 		}
 		
 		return builder.toString();

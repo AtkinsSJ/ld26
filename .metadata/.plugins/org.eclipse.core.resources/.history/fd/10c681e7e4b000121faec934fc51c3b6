@@ -65,15 +65,19 @@ public class Base64 {
 		
 		String singleLine = builder.toString();
 		builder = new StringBuilder();
-		int j;
+		int val, k;
 		for (int i=0; i<singleLine.length(); i+=4) {
-			j = (CHARS.indexOf(singleLine.charAt(i)) << 18)
-				+ (CHARS.indexOf(singleLine.charAt(i+1)) << 12)
-				+ (CHARS.indexOf(singleLine.charAt(i+2)) << 6)
-				+ (CHARS.indexOf(singleLine.charAt(i+3)) );
-			builder.append((char) (j >> 16 & 0xff))
-					.append((char) (j >> 8 & 0xff))
-					.append((char) (j & 0xff));
+			val = 0;
+			for (int j=0; j<3; j++) {
+				k = CHARS.indexOf(singleLine.charAt(i+j));
+				if (k == -1) {
+					break;
+				}
+				val += (k << (6*j));
+			}
+			builder.append((char) ((val >> 16) & 0xff))
+					.append((char) ((val >> 8) & 0xff))
+					.append((char) (val & 0xff));
 		}
 		
 		return builder.toString();
