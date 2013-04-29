@@ -33,7 +33,7 @@ public class PlayScene extends Scene {
 	public void show() {
 		super.show();
 		
-		Skin skin = this.game.getSkin();
+		Skin skin = new Skin(Gdx.files.internal("skin.json"), new TextureAtlas(Gdx.files.internal("packed.atlas")));
 		
 		this.table = new Table(skin);
 		this.table.setPosition(0, 0);
