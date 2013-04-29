@@ -12,12 +12,12 @@ public class LD26 extends Game {
 
 	@Override
 	public void create() {
-		Gdx.graphics.setTitle("DropPix");
+		Gdx.graphics.setTitle("LD26: Minimalism, by Sam Atkins");
 		
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		
-		this.setScreen(new MenuScene(this));
-		//this.playLevel(Gdx.files.internal("levels/01.lvl").readString());
+		//this.setScreen(new PlayScene(this));
+		this.playLevel(Gdx.files.internal("levels/01.lvl").readString());
 	}
 	
 	public void playLevel(String level) {

@@ -1,6 +1,5 @@
 package uk.co.samatkins.ld26;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -34,20 +33,10 @@ public class MenuScene extends Scene {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				super.clicked(event, x, y);
-				game.setScreen(new LevelSelectScene(game));
+				game.setScreen(new LevelSelectScene());
 			}
 		});
 		this.table.add(playButton).row();
-		
-		TextButton quitButton = new TextButton("Quit", skin);
-		quitButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				super.clicked(event, x, y);
-				Gdx.app.exit();
-			}
-		});
-		this.table.add(quitButton).row();
 		
 		this.addActor(table);
 	}
