@@ -78,11 +78,6 @@ public class Base64 {
 			
 			for (int j=16; j>=0; j-=8) {
 				char c = (char) ((val >> j) & 0xff);
-				// Ignore blank chars on the end
-				if (c == '\0') {
-					continue;
-				}
-				
 				builder.append(c);
 			}
 		}

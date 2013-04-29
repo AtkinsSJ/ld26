@@ -75,16 +75,13 @@ public class Base64 {
 				}
 				val += (k << (18 - 6*j));
 			}
-			
-			for (int j=16; j>=0; j-=8) {
-				char c = (char) ((val >> j) & 0xff);
-				// Ignore blank chars on the end
-				if (c == '\0') {
-					continue;
-				}
-				
-				builder.append(c);
-			}
+//			j = (CHARS.indexOf(singleLine.charAt(i)) << 18)
+//					+ (CHARS.indexOf(singleLine.charAt(i+1)) << 12)
+//					+ (CHARS.indexOf(singleLine.charAt(i+2)) << 6)
+//					+ (CHARS.indexOf(singleLine.charAt(i+3)) );
+			builder.append((char) ((val >> 16) & 0xff))
+					.append((char) ((val >> 8) & 0xff))
+					.append((char) (val & 0xff));
 		}
 		
 		return builder.toString();
