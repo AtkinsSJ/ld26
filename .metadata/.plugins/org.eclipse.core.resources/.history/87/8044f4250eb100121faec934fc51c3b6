@@ -26,7 +26,7 @@ public class MenuScene extends Scene {
 		this.table.setFillParent(true);
 		this.table.pad(10);
 		
-		this.table.add("DropPix").expand().row();
+		this.table.add("DropPix").row();
 		this.table.add("A Ludum Dare 26 Jam entry by Sam Atkins").row();
 		
 		TextButton playButton = new TextButton("Play", skin);
