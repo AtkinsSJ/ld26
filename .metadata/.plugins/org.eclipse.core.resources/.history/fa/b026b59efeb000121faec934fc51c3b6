@@ -26,38 +26,19 @@ public class LevelSelectScene extends Scene {
 		this.table.setFillParent(true);
 		this.table.pad(10);
 		
-		this.table.add("Choose a level to play").top().expand().row();
+		this.table.add("Choose a level to play").top().row();
 		
-		// Grid of levels
-		String[] levels = new String[]{
-			"01"	
-		};
 		
-		for (String level : levels) {
-			final String l = level;
-			TextButton levelButton = new TextButton(level, skin);
-			levelButton.addListener(new ClickListener() {
-				{ levelName = l; }
-				private String levelName;
-				
-				@Override
-				public void clicked(InputEvent event, float x, float y) {
-					super.clicked(event, x, y);
-					game.loadLevel(this.levelName);
-				}
-			});
-			this.table.add(levelButton).row();
-		}
 
 		TextButton backButton = new TextButton("Back", skin);
 		backButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				super.clicked(event, x, y);
-				game.setScreen(new MenuScene(game));
+				Gdx.app.exit();
 			}
 		});
-		this.table.add(backButton).left().expand();
+		this.table.add(backButton).row();
 		
 		this.addActor(this.table);
 	}

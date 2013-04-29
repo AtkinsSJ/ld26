@@ -20,10 +20,6 @@ public class LD26 extends Game {
 		//this.playLevel(Gdx.files.internal("levels/01.lvl").readString());
 	}
 	
-	public void loadLevel(String levelName) {
-		this.playLevel(Gdx.files.internal("levels/"+levelName+".lvl").readString());
-	}
-	
 	public void playLevel(String level) {
 		this.setScreen(new PlayScene(this, level));
 	}

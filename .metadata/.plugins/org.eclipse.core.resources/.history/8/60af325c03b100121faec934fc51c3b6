@@ -43,7 +43,7 @@ public class LevelSelectScene extends Scene {
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
 					super.clicked(event, x, y);
-					game.loadLevel(this.levelName);
+					game.playLevel(this.levelName);
 				}
 			});
 			this.table.add(levelButton).row();

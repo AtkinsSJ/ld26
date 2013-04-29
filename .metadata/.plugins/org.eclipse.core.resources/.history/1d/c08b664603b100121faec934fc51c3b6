@@ -37,13 +37,10 @@ public class LevelSelectScene extends Scene {
 			final String l = level;
 			TextButton levelButton = new TextButton(level, skin);
 			levelButton.addListener(new ClickListener() {
-				{ levelName = l; }
-				private String levelName;
-				
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
 					super.clicked(event, x, y);
-					game.loadLevel(this.levelName);
+					game.playLevel(l);
 				}
 			});
 			this.table.add(levelButton).row();

@@ -1,0 +1,32 @@
+package uk.co.samatkins.ld26;
+
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
+
+public class LevelSelectScene extends Scene {
+	
+	private Table table;
+
+	public LevelSelectScene(LD26 game) {
+		super(game, Color.WHITE);
+	}
+	
+	@Override
+	public void show() {
+		super.show();
+		
+		Skin skin = this.game.getSkin();
+		
+		this.table = new Table(skin);
+		
+		
+		this.addActor(this.table);
+	}
+
+	@Override
+	public void update(float delta) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
