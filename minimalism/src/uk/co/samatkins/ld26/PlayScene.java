@@ -5,14 +5,12 @@ import uk.co.samatkins.ld26.ImageRenderer.BlockType;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Array;
 
 public class PlayScene extends Scene {
 	
@@ -158,7 +156,6 @@ public class PlayScene extends Scene {
 		restartButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				// TODO Auto-generated method stub
 				super.clicked(event, x, y);
 				grid.restart();
 			}
@@ -169,7 +166,6 @@ public class PlayScene extends Scene {
 		backButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				// TODO Auto-generated method stub
 				super.clicked(event, x, y);
 				game.setScreen(new LevelSelectScene(game));
 			}
@@ -179,12 +175,11 @@ public class PlayScene extends Scene {
 		this.table.add(rightArea).space(10).fill();//.expand().fill();
 		
 		this.addActor(this.table);
-		
 	}
 
 	@Override
 	public void update(float delta) {
-
+		
 	}
 	
 	@Override
@@ -227,6 +222,33 @@ public class PlayScene extends Scene {
 	
 	public void win() {
 		Gdx.app.debug("WIN", "You win! :D");
+		
+		Skin skin = this.game.getSkin();
+		Table winTable = new Table(skin);
+		winTable.setFillParent(true);
+		winTable.pad(20);
+		winTable.setBackground(skin.getDrawable("whitebg"));
+		
+		Label winLabel = new Label("YOU WIN! :D", skin, "wintext");
+		winLabel.setAlignment(Align.center);
+		winTable.add(winLabel).center().expand().fill().row();
+		
+		TextButton continueButton = new TextButton("Continue", skin);
+		continueButton.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				super.clicked(event, x, y);
+				game.setScreen(new LevelSelectScene(game));
+			}
+		});
+		winTable.add(continueButton).expandX().fillX();
+		
+		// Fade everything out
+		//this.table.setColor(1, 1, 1, 0.5f);
+		// Remove event listeners
+		
+		
+		this.addActor(winTable);
 	}
 	
 	public void lose() {
