@@ -183,7 +183,7 @@ public class PlayScene extends Scene {
 	private BlockType[][] levelFromString(String levelString) {
 		levelString = Base64.decode(levelString);
 		
-		String[] parts = levelString.split(":");
+		String[] parts = levelString.split("\n");
 		
 		String[] dimensions = parts[0].split("x");
 		int w = Integer.parseInt(dimensions[0]);
@@ -191,7 +191,6 @@ public class PlayScene extends Scene {
 		
 		BlockType[][] level = new BlockType[w][h];
 		for (int i=0; i<parts[1].length(); i++) {
-			Gdx.app.debug("x,y", i%w + ", " + i/w);
 			switch (parts[1].charAt(i)) {
 			case '0':
 				level[i%w][i/w] = BlockType.EMPTY; break;
