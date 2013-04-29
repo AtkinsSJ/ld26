@@ -205,13 +205,5 @@ public class PlayScene extends Scene {
 			
 		return level;
 	}
-	
-	public void win() {
-		Gdx.app.debug("WIN", "You win! :D");
-	}
-	
-	public void lose() {
-		Gdx.app.debug("LOSE", "You lose! :(");
-	}
 
 }

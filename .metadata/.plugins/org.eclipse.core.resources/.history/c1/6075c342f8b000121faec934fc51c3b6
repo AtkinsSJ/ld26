@@ -84,14 +84,14 @@ public class ImageGrid extends Widget {
 		int y = this.gridHeight-1;
 		
 		if (image.getBlock(x, y) != BlockType.EMPTY) {
-			((PlayScene)this.getStage()).lose();
+			this.lose();
 			return;
 		} else {
 			while (image.getBlock(x, y-1) == BlockType.EMPTY) {
 				y--;
 			}
 			if (image.getBlock(x, y-1) == BlockType.INVALID) {
-				((PlayScene)this.getStage()).lose();
+				this.lose();
 				return;
 			}
 			this.image.setBlock(x, y, BlockType.PLACED);
@@ -107,14 +107,14 @@ public class ImageGrid extends Widget {
 		int y = 0;
 		
 		if (image.getBlock(x, y) != BlockType.EMPTY) {
-			((PlayScene)this.getStage()).lose();
+			this.lose();
 			return;
 		} else {
 			while (image.getBlock(x, y+1) == BlockType.EMPTY) {
 				y++;
 			}
 			if (image.getBlock(x, y+1) == BlockType.INVALID) {
-				((PlayScene)this.getStage()).lose();
+				this.lose();
 				return;
 			}
 			this.image.setBlock(x, y, BlockType.PLACED);
@@ -130,14 +130,14 @@ public class ImageGrid extends Widget {
 		int y = row;
 		
 		if (image.getBlock(x, y) != BlockType.EMPTY) {
-			((PlayScene)this.getStage()).lose();
+			this.lose();
 			return;
 		} else {
 			while (image.getBlock(x+1, y) == BlockType.EMPTY) {
 				x++;
 			}
 			if (image.getBlock(x+1, y) == BlockType.INVALID) {
-				((PlayScene)this.getStage()).lose();
+				this.lose();
 				return;
 			}
 			this.image.setBlock(x, y, BlockType.PLACED);
@@ -153,14 +153,14 @@ public class ImageGrid extends Widget {
 		int y = row;
 		
 		if (image.getBlock(x, y) != BlockType.EMPTY) {
-			((PlayScene)this.getStage()).lose();
+			this.lose();
 			return;
 		} else {
 			while (image.getBlock(x-1, y) == BlockType.EMPTY) {
 				x--;
 			}
 			if (image.getBlock(x-1, y) == BlockType.INVALID) {
-				((PlayScene)this.getStage()).lose();
+				this.lose();
 				return;
 			}
 			this.image.setBlock(x, y, BlockType.PLACED);
