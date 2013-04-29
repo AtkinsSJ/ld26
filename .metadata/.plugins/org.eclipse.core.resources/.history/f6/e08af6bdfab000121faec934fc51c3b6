@@ -54,7 +54,7 @@ public class PlayScene extends Scene {
 		Table topButtons = new Table(skin);
 		for (int i=0; i<gridW; i++) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "down");
+			Button btn = new ImageButton(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -76,7 +76,7 @@ public class PlayScene extends Scene {
 		Table leftButtons = new Table(skin);
 		for (int i=gridH-1; i>=0; i--) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "right");
+			Button btn = new ImageButton(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -99,7 +99,7 @@ public class PlayScene extends Scene {
 		Table rightButtons = new Table(skin);
 		for (int i=gridH-1; i>=0; i--) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "left");
+			Button btn = new ImageButton(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -119,7 +119,7 @@ public class PlayScene extends Scene {
 		Table bottomButtons = new Table(skin);
 		for (int i=0; i<gridH; i++) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "up");
+			Button btn = new ImageButton(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;

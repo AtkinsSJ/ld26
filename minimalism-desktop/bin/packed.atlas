@@ -5,21 +5,49 @@ filter: Nearest,Nearest
 repeat: none
 deja10
   rotate: false
-  xy: 1, 139
+  xy: 1, 157
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 steeringwheel
   rotate: false
-  xy: 1, 9
+  xy: 1, 27
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-sliderdot
+arrowdown
+  rotate: false
+  xy: 259, 397
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+arrowleft
+  rotate: false
+  xy: 1, 9
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+arrowright
+  rotate: false
+  xy: 131, 139
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+arrowup
   rotate: false
   xy: 259, 379
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+sliderdot
+  rotate: false
+  xy: 277, 397
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

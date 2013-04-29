@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -54,7 +53,7 @@ public class PlayScene extends Scene {
 		Table topButtons = new Table(skin);
 		for (int i=0; i<gridW; i++) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "down");
+			Button btn = new Button(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -76,7 +75,7 @@ public class PlayScene extends Scene {
 		Table leftButtons = new Table(skin);
 		for (int i=gridH-1; i>=0; i--) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "right");
+			Button btn = new Button(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -99,7 +98,7 @@ public class PlayScene extends Scene {
 		Table rightButtons = new Table(skin);
 		for (int i=gridH-1; i>=0; i--) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "left");
+			Button btn = new Button(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;
@@ -119,7 +118,7 @@ public class PlayScene extends Scene {
 		Table bottomButtons = new Table(skin);
 		for (int i=0; i<gridH; i++) {
 			final int j = i;
-			Button btn = new ImageButton(skin, "up");
+			Button btn = new Button(skin);
 			btn.addListener(new ClickListener() {
 				{ index = j; }
 				private int index;

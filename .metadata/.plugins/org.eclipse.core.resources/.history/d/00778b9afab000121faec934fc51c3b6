@@ -25,41 +25,6 @@
 			checked: button
 		}
 	},
-	com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
-		default: {
-			up: button,
-			down: button,
-			checked: button
-		},
-		up: {
-			up: button,
-			down: button,
-			checked: button,
-			imageUp: arrowup,
-			imageDown: arrowup
-		},
-		down: {
-			up: button,
-			down: button,
-			checked: button,
-			imageUp: arrowdown,
-			imageDown: arrowdown
-		},
-		left: {
-			up: button,
-			down: button,
-			checked: button,
-			imageUp: arrowleft,
-			imageDown: arrowleft
-		},
-		right: {
-			up: button,
-			down: button,
-			checked: button,
-			imageUp: arrowright,
-			imageDown: arrowright
-		}
-	},
 	com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 		default: {
 			font: default-font,
