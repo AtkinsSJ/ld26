@@ -165,17 +165,6 @@ public class PlayScene extends Scene {
 		});
 		rightArea.add(restartButton).bottom().expand().row();
 		
-		TextButton backButton = new TextButton("Back", skin);
-		backButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				// TODO Auto-generated method stub
-				super.clicked(event, x, y);
-				game.setScreen(new LevelSelectScene(game));
-			}
-		});
-		rightArea.add(backButton).bottom().expand().row();
-		
 		this.table.add(rightArea).space(10).fill();//.expand().fill();
 		
 		this.addActor(this.table);

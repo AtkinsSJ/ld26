@@ -22,13 +22,11 @@ public class PlayScene extends Scene {
 	
 	private ImageGrid grid;
 	private ImageThumbnail thumb;
-	private String levelName;
 
-	public PlayScene(LD26 game, String levelName, String levelString) {
+	public PlayScene(LD26 game, String levelString) {
 		super(game, Color.WHITE);
 		
 		this.level = this.levelFromString(levelString);
-		this.levelName = levelName;
 	}
 
 	@Override
@@ -142,11 +140,7 @@ public class PlayScene extends Scene {
 		
 		this.table.add(leftArea).fill().expand().space(10);
 		
-		// Right-hand ui area
-		
 		Table rightArea = new Table(skin);
-		
-		rightArea.add("Level " + this.levelName).top().row();
 		
 		rightArea.add("Target:").row();
 		
@@ -164,17 +158,6 @@ public class PlayScene extends Scene {
 			}
 		});
 		rightArea.add(restartButton).bottom().expand().row();
-		
-		TextButton backButton = new TextButton("Back", skin);
-		backButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				// TODO Auto-generated method stub
-				super.clicked(event, x, y);
-				game.setScreen(new LevelSelectScene(game));
-			}
-		});
-		rightArea.add(backButton).bottom().expand().row();
 		
 		this.table.add(rightArea).space(10).fill();//.expand().fill();
 		
