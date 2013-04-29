@@ -1,0 +1,32 @@
+package uk.co.samatkins;
+
+public class Base64 {
+	
+	private static final String CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+			+ "abcdefghijklmnopqrstuvwxyz" + "0123456789" + "+/";
+	
+	public static String encode(String source) {
+		StringBuilder builder = new StringBuilder();
+		
+		int length = source.getBytes().length;
+		
+		int paddingLength = (3 - (length % 3)) % 3;
+		length += paddingLength;
+		
+		byte[] byteArray = new byte[length]; 
+		System.arraycopy(source.getBytes(), 0, byteArray, 0, length-paddingLength);
+		
+		int j;
+		for (int i=0; i<byteArray.length; i+=3) {
+			j = ((byteArray[i] & 0xff) << 16) +
+				((byteArray[i + 1] & 0xff) << 8) + 
+				(byteArray[i + 2] & 0xff);
+			builder.append(CHARS.charAt( (j >> 18) & 0x3f))
+					.append(CHARS.charAt( (j >> 12) & 0x3f))
+					.append(CHARS.charAt( (j >> 6) & 0x3f))
+					.append(CHARS.charAt( j & 0x3f));
+		}
+		
+		return builder.toString();
+	}
+}

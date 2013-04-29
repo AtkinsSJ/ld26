@@ -18,7 +18,7 @@ public class PlayScene extends Scene {
 	private ImageGrid grid;
 	private ImageThumbnail thumb;
 
-	public PlayScene(LD26 game) {
+	public PlayScene(LD26 game, String level) {
 		super(game, Color.WHITE);
 	}
 	
@@ -183,5 +183,9 @@ public class PlayScene extends Scene {
 		super.resize(width, height);
 		thumb.invalidateHierarchy();
 	}
+	
+//	private BlockType[][] levelFromString(String levelString) {
+//		
+//	}
 
 }

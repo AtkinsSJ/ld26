@@ -12,7 +12,11 @@ public class LD26 extends Game {
 		
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		
-		this.setScreen(new PlayScene(this));
+		//this.setScreen(new PlayScene(this));
+	}
+	
+	public void playLevel(String level) {
+		this.setScreen(new PlayScene(this, level));
 	}
 
 }
